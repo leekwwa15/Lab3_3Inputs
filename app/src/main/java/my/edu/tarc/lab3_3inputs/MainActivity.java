@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         int gender = radioGroupGender.getCheckedRadioButtonId();
 
         if(gender == R.id.radioButtonMale){
-            //TODO calculate extra premium for male
             if(ageGroup == 3){
                 premium = premium + 50;
             }else if(ageGroup == 4){
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         if(checkBoxSmoker.isChecked()){
-            //TODO calculate extra premium for smoker
             if(ageGroup == 3){
                 premium = premium + 100;
             }else if(ageGroup == 4){
@@ -102,5 +100,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         textviewPremium.setText("Premium: RM" + premium);
+    }
+
+    public void reset(View view){
+        spinnerAge.setSelection(0);
+        radioButtonMale.setChecked(false);
+        radioGroupGender.clearCheck();
+        checkBoxSmoker.setChecked(false);
+        textviewPremium.setText("Premium");
+
     }
 }
